@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#99ccff"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="301dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="2"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo" />
+
+    <LinearLayout
+        android:layout_width="394dp"
+        android:layout_height="160dp">
+
+        <Button
+            android:id="@+id/bt_main"
+            android:layout_width="191dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:onClick="goToSecondActivity"
+            android:text="실시간 영상 보기" />
+
+        <Button
+            android:layout_width="184dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:onClick="goToSecondActivity"
+            android:text="알림 기록 확인" />
+    </LinearLayout>
+</LinearLayout>
