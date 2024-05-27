@@ -5,20 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".MainActivity">
+    tools:context=".SecondActivity">
 
     <VideoView
         android:id="@+id/vv"
         android:layout_width="wrap_content"
-        android:layout_height="554dp" />
+        android:layout_height="697dp"
+        />
 
     <Button
+        android:id="@+id/bt_second"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="실시간 영상."
-        android:id="@+id/bt_second">
+        android:background="#3B3F80"
+        android:textSize="20sp"
+        android:text="실시간 영상"
+
+        >
 
     </Button>
+
+    <TextView
+        android:id="@+id/statusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bt_second"
+        android:layout_marginTop="686dp"
+        android:text="분류 결과:"
+        android:textColor="#3B3F80"
+        android:textSize="20sp" />
 
 
 </RelativeLayout>

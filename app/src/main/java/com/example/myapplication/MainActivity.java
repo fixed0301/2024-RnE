@@ -19,47 +19,36 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { // 초기 화면 구성
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 버튼 객체 참조
-        Button bt = findViewById(R.id.bt_main);
+        Button btMain1 = findViewById(R.id.bt_main1);
 
         // 버튼에 클릭 이벤트 리스너 설정
-        bt.setOnClickListener(new View.OnClickListener() {
+        btMain1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // 버튼 클릭 시 두 번째 액티비티로 이동
-                goToSecondActivity();
+                Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
+                startActivity(intent);
             }
         });
 
-        // Firebase 메시징 토큰 받아오기
-        FirebaseMessaging.getInstance().getToken()
-                .addOnCompleteListener(new OnCompleteListener<String>() {
-                    @Override
-                    public void onComplete(@NonNull Task<String> task) {
-                        if (!task.isSuccessful()) {
-                            Log.w(TAG, "Fetching FCM registration token failed", task.getException());
-                            return;
-                        }
 
-                        // Get new FCM registration token
-                        String token = task.getResult();
-                        Log.d(TAG, "Token: " + token);
-                        // Log and toast
-                        String msg = getString(R.string.msg_token_fmt, token);
-                        Log.d(TAG, msg);
-                        Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+        Button btMain2 = findViewById(R.id.bt_main2);
 
-                    }
-                });
+        btMain2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ThirdActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
-    // 두 번째 액티비티로 이동하는 메서드
-    private void goToSecondActivity() {
-        Intent intent = new Intent(this, SecondActivity.class);
-        startActivity(intent);
-    }
+
+
 }

@@ -6,38 +6,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="#99ccff"
+    android:background="#FFFFFF"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <ImageView
-        android:layout_width="250dp"
-        android:layout_height="301dp"
+        android:layout_width="wrap_content"
+        android:layout_height="521dp"
         android:layout_gravity="center_horizontal"
         android:layout_weight="2"
-        android:scaleType="fitCenter"
+
         android:src="@drawable/logo" />
+
+    <Button
+        android:id="@+id/bt_main2"
+        android:layout_width="378dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:background="#FFFFFF"
+        android:onClick="goToThirdActivity"
+        android:textColor="#3B3F80"
+        android:textSize="20sp"
+        android:text="알림 기록 확인" />
 
     <LinearLayout
         android:layout_width="394dp"
-        android:layout_height="160dp">
+        android:layout_height="239dp">
 
         <Button
-            android:id="@+id/bt_main"
-            android:layout_width="191dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/bt_main1"
+            android:layout_width="340dp"
+            android:layout_height="67dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_weight="1"
+            android:background="#FFFFFF"
             android:onClick="goToSecondActivity"
-            android:text="실시간 영상 보기" />
+            android:text="실시간 영상 보기"
+            android:textColor="#3B3F80"
+            android:textSize="20sp" />
 
-        <Button
-            android:layout_width="184dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:onClick="goToSecondActivity"
-            android:text="알림 기록 확인" />
     </LinearLayout>
 </LinearLayout>
