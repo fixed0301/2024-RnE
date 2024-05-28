@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="msg_token_fmt" translatable="false">토큰: %s</string>string>
+    <string name="classification_result">분류 결과:</string>
 </resources>

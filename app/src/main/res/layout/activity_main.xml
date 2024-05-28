@@ -44,7 +44,7 @@
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:onClick="goToSecondActivity"
-            android:text="실시간 영상 보기"
+            android:text="놀이터 실시간 영상"
             android:textColor="#3B3F80"
             android:textSize="20sp" />
 

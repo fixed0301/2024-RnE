@@ -1,4 +1,5 @@
 package com.example.myapplication;
+// ThirdActivity.java
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -13,11 +14,13 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;  // 추가
 
 public class ThirdActivity extends AppCompatActivity {
 
     private TextView responseTextView;
-    private static StringBuilder accumulatedResponse = new StringBuilder(); // 정적 변수로 변경
+    private static StringBuilder accumulatedResponse = new StringBuilder();
     private Handler handler;
     private Runnable updateTask;
     private String currentStatus;
@@ -90,7 +93,9 @@ public class ThirdActivity extends AppCompatActivity {
                     String status = extractStatus(statusMessage);
                     if (status != null) {
                         currentStatus = status; // 상태를 저장합니다.
-                        accumulatedResponse.append("현재 동작: ").append(status).append("\n");
+                        SimpleDateFormat sdf = new SimpleDateFormat("MM.dd.HH:mm:ss");  // 날짜 포맷
+                        String currentDateandTime = sdf.format(new Date());  // 현재 시간을 포맷에 맞게 가져옴
+                        accumulatedResponse.append("현재 동작: ").append(status).append("    ").append(currentDateandTime).append("\n");
                     }
                 }
                 responseTextView.setText(accumulatedResponse.toString());
@@ -115,7 +120,9 @@ public class ThirdActivity extends AppCompatActivity {
                     String status = extractStatus(result);
                     if (status != null) {
                         currentStatus = status; // 상태를 저장합니다.
-                        accumulatedResponse.append("현재 동작: ").append(status).append("\n");
+                        SimpleDateFormat sdf = new SimpleDateFormat("MM.dd.HH:mm");  // 날짜 포맷
+                        String currentDateandTime = sdf.format(new Date());  // 현재 시간을 포맷에 맞게 가져옴
+                        accumulatedResponse.append("현재 동작: ").append(status).append("    ").append(currentDateandTime).append("\n");
                     }
                 }
                 responseTextView.setText(accumulatedResponse.toString());
@@ -128,12 +135,11 @@ public class ThirdActivity extends AppCompatActivity {
                     responseTextView.scrollTo(0, 0);
                 }
                 // 분류 결과를 실시간 영상 보기 쪽으로 전송
-                Intent intent = new Intent(ThirdActivity.this, SecondActivity.class);
+                Intent intent = new Intent();
                 intent.putExtra("status", currentStatus);
                 Log.d("ThirdActivity", "Sending status: " + currentStatus); // Log 메시지 추가
                 setResult(RESULT_OK, intent);
                 finish();
-
             }
         }
 
