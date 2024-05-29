@@ -9,20 +9,19 @@
 
     <VideoView
         android:id="@+id/vv"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="697dp"
-        />
+        android:layout_alignTop="@+id/bt_second"
+        android:layout_marginTop="-25dp" />
 
     <Button
         android:id="@+id/bt_second"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:background="#3B3F80"
-        android:textSize="20sp"
         android:text="실시간 영상"
-
-        >
-    </Button>
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/bt_get_area"
@@ -30,22 +29,21 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="53dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="19dp"
         android:background="#3B3F80"
         android:text="선택 영역 확인"
-        android:textSize="20sp">
-
-    </Button>
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/statusTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/vv"
         android:layout_marginTop="16dp"
         android:text="분류 결과:"
+        android:layout_below="@id/vv"
         android:textColor="#3B3F80"
         android:layout_marginStart="20dp"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        />
 </RelativeLayout>
