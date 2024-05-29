@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.TextView;
@@ -16,6 +16,8 @@ public class SecondActivity extends AppCompatActivity {
 
     private VideoView vv;
     private TextView statusTextView;
+    private Handler handler;
+    private Runnable updateStatusTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         Button bt = findViewById(R.id.bt_second);
+        Button btGetArea = findViewById(R.id.bt_get_area);
         vv = findViewById(R.id.vv);
         statusTextView = findViewById(R.id.statusTextView);
 
@@ -55,13 +58,28 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
-        // Intent로부터 status를 받아옴
-        Intent intent = getIntent();
-        String status = intent.getStringExtra("status");
-        System.out.println("Received status: " + status);
-        if (status != null) {
-            statusTextView.setText("분류 결과: " + status);
-        }
+        // '선택 영역 확인' 버튼 클릭 이벤트 설정
+        btGetArea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // GetArea 액티비티 시작
+                Intent intent = new Intent(SecondActivity.this, GetArea.class);
+                startActivity(intent);
+            }
+        });
+
+        // 주기적으로 상태를 업데이트하는 작업을 설정합니다.
+        handler = new Handler();
+        updateStatusTask = new Runnable() {
+            @Override
+            public void run() {
+                if (ThirdActivity.currentStatus != null) {
+                    statusTextView.setText("분류 결과: " + ThirdActivity.currentStatus);
+                }
+                handler.postDelayed(this, 2000); // 2초마다 상태 업데이트
+            }
+        };
+        handler.post(updateStatusTask);
     }
 
     // 화면에 안 보일 때...
@@ -78,5 +96,6 @@ public class SecondActivity extends AppCompatActivity {
         super.onDestroy();
         // 비디오 정지
         if (vv != null) vv.stopPlayback();
+        handler.removeCallbacks(updateStatusTask); // 상태 업데이트 작업 중지
     }
 }

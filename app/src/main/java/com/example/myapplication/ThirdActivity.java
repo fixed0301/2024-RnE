@@ -1,7 +1,5 @@
 package com.example.myapplication;
-// ThirdActivity.java
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,7 +13,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.util.Date;  // 추가
+import java.util.Date;
 
 public class ThirdActivity extends AppCompatActivity {
 
@@ -23,7 +21,7 @@ public class ThirdActivity extends AppCompatActivity {
     private static StringBuilder accumulatedResponse = new StringBuilder();
     private Handler handler;
     private Runnable updateTask;
-    private String currentStatus;
+    public static String currentStatus; // Static 변수로 변경
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,12 +132,6 @@ public class ThirdActivity extends AppCompatActivity {
                 } else {
                     responseTextView.scrollTo(0, 0);
                 }
-                // 분류 결과를 실시간 영상 보기 쪽으로 전송
-                Intent intent = new Intent();
-                intent.putExtra("status", currentStatus);
-                Log.d("ThirdActivity", "Sending status: " + currentStatus); // Log 메시지 추가
-                setResult(RESULT_OK, intent);
-                finish();
             }
         }
 

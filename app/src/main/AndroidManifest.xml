@@ -31,6 +31,7 @@
 
         <activity android:name=".SecondActivity" />
         <activity android:name=".ThirdActivity" />
+        <activity android:name=".GetArea" />
 
         <!-- 서비스 정의 -->
         <service android:name="com.example.myapplication.FirebaseInstanceIDService"

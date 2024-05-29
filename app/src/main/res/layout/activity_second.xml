@@ -22,6 +22,19 @@
         android:text="실시간 영상"
 
         >
+    </Button>
+
+    <Button
+        android:id="@+id/bt_get_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="53dp"
+        android:background="#3B3F80"
+        android:text="선택 영역 확인"
+        android:textSize="20sp">
 
     </Button>
 
@@ -29,11 +42,10 @@
         android:id="@+id/statusTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bt_second"
-        android:layout_marginTop="686dp"
+        android:layout_below="@id/vv"
+        android:layout_marginTop="16dp"
         android:text="분류 결과:"
         android:textColor="#3B3F80"
+        android:layout_marginStart="20dp"
         android:textSize="20sp" />
-
-
 </RelativeLayout>
