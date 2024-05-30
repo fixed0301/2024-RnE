@@ -8,45 +8,41 @@
     android:padding="16dp"
     android:background="#FFFFFF"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".MainActivity">
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="521dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="2"
-
+        android:layout_height="286dp"
         android:src="@drawable/logo" />
 
-    <Button
-        android:id="@+id/bt_main2"
-        android:layout_width="378dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_weight="1"
-        android:background="#FFFFFF"
-        android:onClick="goToThirdActivity"
-        android:textColor="#3B3F80"
-        android:textSize="20sp"
-        android:text="알림 기록 확인" />
-
     <LinearLayout
-        android:layout_width="394dp"
-        android:layout_height="239dp">
+        android:layout_width="365dp"
+        android:layout_height="353dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <Button
+            android:id="@+id/bt_main2"
+            android:layout_width="365dp"
+            android:layout_height="66dp"
+            android:background="#FFFFFF"
+            android:onClick="goToThirdActivity"
+            android:text="알림 기록 확인"
+            android:textColor="#3B3F80"
+            android:textSize="20sp" />
+        <Button
             android:id="@+id/bt_main1"
-            android:layout_width="340dp"
-            android:layout_height="67dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_weight="1"
+            android:layout_width="365dp"
+            android:layout_height="63dp"
             android:background="#FFFFFF"
             android:onClick="goToSecondActivity"
             android:text="놀이터 실시간 영상"
             android:textColor="#3B3F80"
             android:textSize="20sp" />
 
+
     </LinearLayout>
+
 </LinearLayout>

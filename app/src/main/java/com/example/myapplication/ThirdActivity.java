@@ -57,7 +57,7 @@ public class ThirdActivity extends AppCompatActivity {
         updateTask = new Runnable() {
             @Override
             public void run() {
-                new GetRequestTask().execute("http://10.0.2.2:5000/");
+                new GetRequestTask().execute("http://192.168.1.234:5000/");
                 handler.postDelayed(this, 2000);
             }
         };
@@ -204,7 +204,9 @@ public class ThirdActivity extends AppCompatActivity {
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
-                .setAutoCancel(true);
+                .setAutoCancel(true)
+                .setVibrate(new long[] { 0, 500, 1000 })  // 진동 패턴 설정
+                .setSound(android.provider.Settings.System.DEFAULT_NOTIFICATION_URI);  // 기본 알림 소리 설정
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(NOTIFICATION_ID, builder.build());
@@ -229,4 +231,5 @@ public class ThirdActivity extends AppCompatActivity {
             }
         }
     }
+
 }
